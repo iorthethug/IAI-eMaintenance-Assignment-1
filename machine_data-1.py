@@ -24,7 +24,7 @@ Which manufacturer has the best performance and why?
 '''
 #%%
 # read the data file into a dataframe
-df = pd.read_csv('machine_data.csv')
+df = pd.read_csv('machine_data-1.csv')
 print(df)
 
 print(df.shape)
@@ -33,14 +33,16 @@ print(df.shape)
 """
 Drop the index
 """
+df.drop(df.columns[0],axis=1)
+
 
 #%%
 """
 Extract data for a given manufacturer
 """
-grpByManu = df.groupby(['manufacturef'])
+grpByManu = df.groupby(['manufacturer'])
 
-dfa = grpByManu.get_group('A')
+dfa = grpByManu.get_group(('A',))
 
 #%%
 
